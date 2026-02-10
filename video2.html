@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Special Video</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  background:#0b0b14;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  font-family:system-ui,Arial;
+}
+
+.video-wrap{
+  position:relative;
+  width:92%;
+  max-width:900px;
+  border-radius:20px;
+}
+
+.video-wrap::before{
+  content:"";
+  position:absolute;
+  inset:-12px;
+  border-radius:26px;
+  background:conic-gradient(
+    #ff00cc,
+    #3333ff,
+    #00ffee,
+    #ff9900,
+    #ff00cc
+  );
+  animation:spin 6s linear infinite;
+  filter:blur(18px);
+  z-index:-1;
+}
+
+.video-wrap::after{
+  content:"";
+  position:absolute;
+  inset:-24px;
+  border-radius:34px;
+  background:conic-gradient(
+    #ff00cc,
+    #3333ff,
+    #00ffee,
+    #ff9900,
+    #ff00cc
+  );
+  animation:spin 10s linear infinite reverse;
+  filter:blur(35px);
+  opacity:.7;
+  z-index:-2;
+}
+
+@keyframes spin{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+iframe{
+  width:100%;
+  aspect-ratio:16/9;
+  border:0;
+  border-radius:20px;
+  background:#000;
+}
+</style>
+</head>
+
+<body>
+
+<div class="video-wrap">
+  <iframe
+    src="https://drive.google.com/file/d/1oHA15d4F9jRr1juQtl3u0SHH2m6a1tas/preview"
+    allow="autoplay"
+    allowfullscreen>
+  </iframe>
+</div>
+
+</body>
+</html>
