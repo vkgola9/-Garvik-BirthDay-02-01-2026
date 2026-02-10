@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Collage Gallery – Center Zoom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      background: #ffffff;
+      font-family: system-ui, Arial, sans-serif;
+    }
+
+    .gallery {
+      column-count: 4;
+      column-gap: 16px;
+      padding: 20px;
+    }
+
+    @media (max-width:1200px) {
+      .gallery {
+        column-count: 3;
+      }
+    }
+
+    @media (max-width:768px) {
+      .gallery {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width:480px) {
+      .gallery {
+        column-count: 1;
+      }
+    }
+
+    .item {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .item img {
+      width: 100%;
+      display: block;
+      transition: transform .25s ease;
+    }
+
+    .item:hover img {
+      transform: scale(1.03);
+    }
+
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(.92);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="gallery">
+    <div class="item"><a href="assets/images/IMG_0284.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0284.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0285.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0285.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0286.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0286.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0287.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0287.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0290.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0290.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0291.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0291.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0310.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0310.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0311.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0311.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0312.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0312.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0313.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0313.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0325.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0325.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0328.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0328.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0329.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0329.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0330.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0330.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0345.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0345.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0346.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0346.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0347.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0347.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0348.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0348.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0354.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0354.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0355.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0355.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0356.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0356.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0357.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0357.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0358.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0358.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0359.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0359.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0360.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0360.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0361.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0361.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0368.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0368.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0369.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0369.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0370.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0370.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0371.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0371.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0372.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0372.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0373.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0373.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0374.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0374.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0375.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0375.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0376.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0376.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0377.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0377.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0378.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0378.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0379.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0379.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0380.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0380.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0381.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0381.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0382.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0382.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0383.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0383.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0384.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0384.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0385.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0385.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0386.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0386.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0387.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0387.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0390.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0390.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0391.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0391.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0392.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0392.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0393.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0393.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0394.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0394.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0395.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0395.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0396.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0396.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0397.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0397.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0398.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0398.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0399.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0399.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0400.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0400.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0401.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0401.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0402.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0402.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0405.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0405.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0406.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0406.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0407.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0407.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0408.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0408.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0409.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0409.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0410.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0410.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0411.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0411.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0412.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0412.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0413.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0413.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0414.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0414.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0415.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0415.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0416.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0416.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0418.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0418.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0419.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0419.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0420.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0420.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0421.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0421.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0422.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0422.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0423.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0423.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0424.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0424.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0426.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0426.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0427.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0427.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0428.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0428.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0429.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0429.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0430.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0430.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0431.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0431.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0432.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0432.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0433.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0433.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0434.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0434.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0435.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0435.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0436.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0436.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0437.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0437.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0438.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0438.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0439.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0439.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0440.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0440.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0441.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0441.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0442.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0442.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0443.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0443.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0444.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0444.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0445.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0445.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0446.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0446.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0447.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0447.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0448.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0448.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0449.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0449.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0450.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0450.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0452.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0452.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0453.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0453.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0454.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0454.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0455.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0455.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0456.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0456.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0459.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0459.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0460.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0460.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0461.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0461.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0466.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0466.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0467.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0467.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0468.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0468.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0469.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0469.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0470.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0470.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0475.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0475.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0476.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0476.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0484.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0484.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0485.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0485.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0486.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0486.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0487.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0487.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0488.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0488.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0489.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0489.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0493.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0493.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0494.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0494.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0495.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0495.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0498.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0498.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0499.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0499.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0500.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0500.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0501.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0501.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0502.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0502.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0503.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0503.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0504.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0504.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0507.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0507.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0508.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0508.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0509.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0509.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0511.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0511.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0513.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0513.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0514.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0514.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0515.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0515.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0516.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0516.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0518.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0518.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0519.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0519.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0520.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0520.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0521.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0521.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0522.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0522.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0524.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0524.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0525.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0525.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0528.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0528.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0529.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0529.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0530.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0530.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0531.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0531.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0532.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0532.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0534.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0534.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0535.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0535.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0537.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0537.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0538.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0538.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0541.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0541.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0542.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0542.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0543.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0543.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0544.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0544.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0545.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0545.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0546.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0546.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0548.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0548.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0552.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0552.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0553.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0553.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0554.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0554.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0557.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0557.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0558.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0558.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0559.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0559.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0560.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0560.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0562.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0562.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0563.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0563.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0564.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0564.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0565.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0565.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0568.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0568.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0569.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0569.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0570.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0570.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0571.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0571.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0572.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0572.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0573.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0573.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0574.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0574.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0575.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0575.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0576.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0576.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0578.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0578.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0579.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0579.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0580.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0580.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0581.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0581.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0582.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0582.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0583.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0583.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0584.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0584.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0588.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0588.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0590.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0590.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0591.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0591.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0592.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0592.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0593.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0593.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0595.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0595.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0596.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0596.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0597.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0597.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0598.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0598.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0599.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0599.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0600.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0600.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0601.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0601.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0602.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0602.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0603.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0603.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0605.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0605.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0606.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0606.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0613.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0613.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0619.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0619.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0620.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0620.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0621.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0621.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0622.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0622.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0623.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0623.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0624.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0624.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0630.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0630.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0631.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0631.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0632.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0632.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0637.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0637.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0638.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0638.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0639.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0639.JPG"></a></div>
+    <div class="item"><a href="assets/images/IMG_0640.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0640.JPG"></a></div>
+  </div>
+
+
+
+  <script src="assets/js/jquery.fancybox.min.js"></script>
+
+</body>
+
+</html>
