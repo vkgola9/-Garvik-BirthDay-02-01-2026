@@ -5,9 +5,8 @@
   <meta charset="UTF-8">
   <title>Collage Gallery – Center Zoom</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="assets/css/custom.css">
-  <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
   <style>
@@ -35,12 +34,6 @@
       }
     }
 
-    /* @media (max-width:480px) {
-      .gallery {
-        column-count: 1;
-      }
-    } */
-
     .item {
       break-inside: avoid;
       margin-bottom: 16px;
@@ -59,16 +52,98 @@
       transform: scale(1.03);
     }
 
+    /* =========================
+       VIDEO BUTTON SECTION
+    ========================= */
+    .video-btn-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 60px 0 80px;
+    }
 
-    @keyframes zoomIn {
-      from {
-        transform: scale(.92);
-        opacity: 0;
+    .video-btn {
+      position: relative;
+      padding: 18px 48px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 60px;
+      background: linear-gradient(135deg, #7a00ff, #ff008c, #ff7a00);
+      background-size: 300% 300%;
+      animation: gradientMove 4s ease infinite, pulse 2.5s infinite;
+      box-shadow: 0 10px 30px rgba(255, 0, 140, .35);
+      overflow: hidden;
+    }
+
+    /* glow ring */
+    .video-btn::before {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, #00f0ff, #7a00ff, #ff008c, #00f0ff);
+      filter: blur(18px);
+      opacity: .7;
+      z-index: -1;
+      animation: spin 6s linear infinite;
+    }
+
+    /* hover ripple */
+    .video-btn::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: 50%;
+      top: 50%;
+      background: rgba(255, 255, 255, .35);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: .4s;
+    }
+
+    .video-btn:hover::after {
+      width: 220%;
+      height: 220%;
+      opacity: 0;
+    }
+
+    .video-btn:hover {
+      transform: scale(1.06);
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
       }
 
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 140, .5);
+      }
+
+      70% {
+        box-shadow: 0 0 0 25px rgba(255, 0, 140, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 140, 0);
+      }
+    }
+
+    @keyframes spin {
       to {
-        transform: scale(1);
-        opacity: 1;
+        transform: rotate(360deg);
       }
     }
   </style>
@@ -301,10 +376,16 @@
     <div class="item"><a href="assets/images/IMG_0640.JPG" data-fancybox="gal1"><img src="assets/images/IMG_0640.JPG"></a></div>
   </div>
 
-
+  <!-- =========================
+       CENTER VIDEO BUTTON
+  ========================= -->
+  <div class="video-btn-wrap">
+    <a href="index2.html" class="video-btn">
+      ▶ Watch Video
+    </a>
+  </div>
 
   <script src="assets/js/jquery.fancybox.min.js"></script>
-
 </body>
 
 </html>
