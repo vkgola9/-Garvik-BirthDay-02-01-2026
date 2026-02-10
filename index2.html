@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rotating Glow Video Box</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* =====================
+   PAGE BASE
+===================== */
+body{overflow: hidden;
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#050510;
+  font-family:system-ui, Arial, sans-serif;
+}
+
+/* =====================
+   VIDEO CONTAINER
+===================== */
+.video-wrapper{
+  position:relative;
+  width:90%;
+  max-width:1000px;
+  border-radius:30px;
+}
+
+/* =====================
+   ROTATING GLOW (ROUND)
+===================== */
+.video-wrapper::before{
+  content:"";
+  position:absolute;
+  inset:-12px;
+  border-radius:inherit;
+  background:conic-gradient(
+    #00f0ff,
+    #7a00ff,
+    #ff008c,
+    #ffae00,
+    #00f0ff
+  );
+  filter:blur(28px);
+  animation:spin 6s linear infinite;
+  z-index:-1;
+}
+
+/* OUTER SOFT GLOW */
+.video-wrapper::after{
+  content:"";
+  position:absolute;
+  inset:-26px;
+  border-radius:inherit;
+  background:conic-gradient(
+    #00f0ff,
+    #7a00ff,
+    #ff008c,
+    #ffae00,
+    #00f0ff
+  );
+  filter:blur(70px);
+  opacity:.6;
+  animation:spinReverse 12s linear infinite;
+  z-index:-2;
+}
+
+@keyframes spin{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
+}
+@keyframes spinReverse{
+  from{ transform:rotate(360deg); }
+  to{ transform:rotate(0deg); }
+}
+
+/* =====================
+   VIDEO STYLE
+===================== */
+.video-wrapper video{
+  width:100%;
+  height:auto;          /* AUTO HEIGHT */
+  display:block;
+  border-radius:30px;
+  background:#000;
+}
+</style>
+</head>
+
+<body>
+
+<div class="video-wrapper">
+  <video controls autoplay muted loop playsinline >
+    <!-- 🔽 APNA VIDEO PATH YA URL YAHAN DALO -->
+    <source src="assets/video/001.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+</body>
+</html>
